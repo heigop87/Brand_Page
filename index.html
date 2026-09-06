@@ -16,6 +16,10 @@ body{margin:0;font:500 15px/1.5 Manrope,system-ui,sans-serif;color:var(--text);b
 header.site{background:#fff;border-bottom:1px solid rgba(4,0,17,.08)} .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;height:62px}
 .logo{font:800 20px Manrope;letter-spacing:-.02em;color:var(--ink);text-decoration:none} nav.main{display:flex;gap:26px} nav.main a{font:700 14px Manrope;color:var(--text);text-decoration:none}
 .util{display:flex;align-items:center;gap:16px;font:700 13px Manrope} .util a{text-decoration:none;color:var(--text)} .util .login{background:var(--purple);color:#fff;border-radius:9999px;padding:9px 16px}
+.jump{position:sticky;top:0;z-index:20;background:rgba(248,249,250,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin:22px 0 0}
+.jump .in{display:flex;align-items:center;gap:clamp(20px,3vw,38px);overflow-x:auto;scrollbar-width:none}
+.jump a{flex:0 0 auto;padding:13px 0;font:700 13.5px Manrope;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.jump a:hover{color:var(--purple)} .jump a.active{color:var(--purple);border-bottom-color:var(--purple)}
 .crumb{font:700 12px Manrope;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:26px 0 10px} .crumb a{text-decoration:none} .crumb .sep{margin:0 7px;color:#cbc7d1} .crumb .here{color:var(--ink)}
 .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:end;background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(24px,3vw,40px);box-shadow:0 24px 48px -30px rgba(20,20,31,.13)}
 h1{font:800 clamp(28px,3.6vw,42px) Manrope;letter-spacing:-.025em;line-height:1.04;color:var(--ink);margin:0 0 8px}
@@ -25,7 +29,7 @@ h1{font:800 clamp(28px,3.6vw,42px) Manrope;letter-spacing:-.025em;line-height:1.
 .facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;margin-top:20px}
 .fact{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 18px} .fact .l{display:flex;align-items:center;gap:6px;font:800 12px Manrope;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)} .fact .l .material-symbols-outlined{font-size:16px;color:var(--accent)} .fact .v{font:700 15px Manrope;letter-spacing:-.01em;margin-top:6px;line-height:1.35;color:var(--ink)} .fact .v a{color:inherit;text-decoration:none;border-bottom:1px solid var(--chipline)} .fact .v small{display:block;font:600 12px Manrope;color:var(--faint);margin-top:3px} .fact.rev{border-style:dashed}
 h2{font:800 clamp(26px,3.4vw,38px) Manrope;letter-spacing:-.02em;color:var(--ink);margin:0 0 8px}
-section.blk{scroll-margin-top:70px;padding:clamp(40px,5vw,64px) 0 0} .sub{font:500 15px Manrope;color:var(--muted);margin:0 0 20px;max-width:72ch} .eyebrow{display:block;font:800 13px Manrope;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+section.blk{scroll-margin-top:62px;padding:clamp(40px,5vw,64px) 0 0} .sub{font:500 15px Manrope;color:var(--muted);margin:0 0 20px;max-width:72ch} .eyebrow{display:block;font:800 13px Manrope;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
 .tools{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:8px} .cnt{font:700 14px Manrope;color:var(--muted)}
 .chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:9999px;padding:8px 14px;font:800 12px Manrope;color:var(--purple);cursor:pointer} .chip[aria-pressed="true"]{background:var(--purple);color:#fff;border-color:var(--purple)}
 .series{margin-top:22px} .series h3{font:800 18px Manrope;letter-spacing:-.01em;color:var(--ink);margin:0 0 12px;display:flex;align-items:center;gap:12px} .series h3::after{content:"";flex:1;height:1px;background:var(--line)} .s-n{font:700 13px Manrope;color:var(--faint)}
@@ -52,6 +56,7 @@ footer.site{background:#fff;border-top:1px solid rgba(4,0,17,.08);margin-top:cla
 <header class="site"><div class="wrap bar"><a class="logo" href="/">YachtWay</a><nav class="main"><a href="/yachts-for-sale/">Yachts for Sale</a><a href="/places-to-go/">Places to Go</a><a href="/boat-loans/">Boat Loans</a><a href="/boat-insurance/">Boat Insurance</a></nav><div class="util"><span>EN</span><a href="/pro">Sell</a><a class="login" href="#">Log in or sign up</a></div></div></header>
 <main class="wrap">
   <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/brands/">Brands</a><span class="sep">›</span><span class="here">Azimut</span></nav>
+  <section id="overview" style="scroll-margin-top:62px">
   <div class="hero">
     <div>
       <h1>Azimut Yachts for Sale</h1>
@@ -68,6 +73,16 @@ footer.site{background:#fff;border-top:1px solid rgba(4,0,17,.08);margin-top:cla
     <a class="fact rev" href="#listings" style="text-decoration:none;color:inherit"><div class="l"><span class="material-symbols-outlined">sell</span>Available</div><div class="v">112 for sale<small>From $690,000 · Decision A, for review</small></div></a>
   </div>
   <p class="sub" style="margin-top:12px;font-size:13px">Built in is not shown: Azimut builds in Italy and Brazil, so the origin is prose in About, per the rule for several countries.</p>
+  </section>
+
+  <nav class="jump" aria-label="Sections"><div class="in">
+    <a href="#overview" class="active" data-sec="overview">Overview</a>
+    <a href="#models" data-sec="models">Models</a>
+    <a href="#listings" data-sec="listings">For sale</a>
+    <a href="#about" data-sec="about">About</a>
+    <a href="#dealers" data-sec="dealers">Dealers</a>
+    <a href="#reviews" data-sec="reviews">Reviews</a>
+  </div></nav>
 
   <section class="blk" id="models">
     <div class="tools"><div><h2>Azimut Models</h2><p class="sub" style="margin:0">Every model once, grouped by series, the buyable ones first. A model with a page is a link.</p></div><button class="chip" id="instock" type="button" aria-pressed="false"><span class="material-symbols-outlined" style="font-size:16px">check_circle</span>In stock</button></div>
@@ -451,6 +466,7 @@ footer.site{background:#fff;border-top:1px solid rgba(4,0,17,.08);margin-top:cla
 <script>
 const t=document.getElementById('toast');let tt;function flash(m){t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2400);}
 const b=document.getElementById('instock');b.onclick=()=>{const on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);document.body.classList.toggle('instock',on);};
+const ids=['overview','models','listings','about','dealers','reviews'];function spy(){let a='overview';ids.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=90)a=id;});document.querySelectorAll('.jump a').forEach(l=>l.classList.toggle('active',l.dataset.sec===a));}addEventListener('scroll',spy,{passive:true});spy();
 document.querySelectorAll('.m-name,.lc-name,.rv-name,.dc-name,.fact a').forEach(a=>a.addEventListener('click',e=>{if(e.detail===0||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();flash('→ '+a.getAttribute('href'));}));
 </script>
 </body></html>
